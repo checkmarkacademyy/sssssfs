@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-container": "#202a38",
+                    "tertiary-container": "#8791a3",
+                    "surface-container-high": "#292a2e",
+                    "surface-container-low": "#1a1b20",
+                    "on-surface": "#e3e2e8",
+                    "on-secondary-container": "#00424e",
+                    "on-tertiary": "#27313f",
+                    "surface-container-lowest": "#0d0e12",
+                    "on-tertiary-fixed": "#121c2a",
+                    "on-error-container": "#ffdad6",
+                    "surface-container-highest": "#343439",
+                    "secondary-fixed-dim": "#4cd7f6",
+                    "primary-fixed": "#e1e0ff",
+                    "inverse-surface": "#e3e2e8",
+                    "error-container": "#93000a",
+                    "on-secondary": "#003640",
+                    "on-background": "#e3e2e8",
+                    "tertiary-fixed": "#d9e3f6",
+                    "error": "#ffb4ab",
+                    "outline": "#908fa0",
+                    "secondary": "#4cd7f6",
+                    "outline-variant": "#464554",
+                    "on-secondary-fixed-variant": "#004e5c",
+                    "on-primary-fixed-variant": "#2f2ebe",
+                    "primary-fixed-dim": "#c0c1ff",
+                    "inverse-on-surface": "#2f3035",
+                    "surface-variant": "#343439",
+                    "tertiary": "#bdc7d9",
+                    "secondary-container": "#03b5d3",
+                    "surface-dim": "#121317",
+                    "tertiary-fixed-dim": "#bdc7d9",
+                    "surface-container": "#1f1f24",
+                    "primary": "#c0c1ff",
+                    "surface": "#121317",
+                    "on-primary": "#1000a9",
+                    "primary-container": "#8083ff",
+                    "on-error": "#690005",
+                    "secondary-fixed": "#acedff",
+                    "on-tertiary-fixed-variant": "#3d4756",
+                    "surface-bright": "#38393e",
+                    "on-surface-variant": "#c7c4d7",
+                    "on-primary-container": "#0d0096",
+                    "background": "#121317",
+                    "on-primary-fixed": "#07006c",
+                    "inverse-primary": "#494bd6",
+                    "surface-tint": "#c0c1ff",
+                    "on-secondary-fixed": "#001f26"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "4px",
+                    "xl": "32px",
+                    "xs": "4px",
+                    "container-margin": "40px",
+                    "lg": "24px",
+                    "md": "16px",
+                    "sm": "8px",
+                    "gutter": "20px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "label-xs": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "h3": ["Inter"],
+                    "body-md": ["Inter"],
+                    "h1": ["Inter"],
+                    "h2": ["Inter"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}],
+                    "label-xs": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "label-sm": ["14px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                    "h3": ["24px", {"lineHeight": "1.4", "letterSpacing": "0em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}],
+                    "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "h2": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0B0C10;
+            color: #e3e2e8;
+            overflow-x: hidden;
+        }
+        .atmospheric-blur {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            filter: blur(100px);
+            opacity: 0.15;
+        }
+        .glass-panel {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glass-panel:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        .neon-glow-cyan {
+            box-shadow: 0 0 15px rgba(76, 215, 246, 0.4);
+        }
+        .neon-glow-indigo {
+            box-shadow: 0 0 15px rgba(192, 193, 255, 0.3);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-surface">
+<!-- Atmospheric Background Layers -->
+<div class="atmospheric-blur bg-primary" style="top: -10%; left: -10%; border-radius: 50%; width: 600px; height: 600px;"></div>
+<div class="atmospheric-blur bg-secondary" style="bottom: -10%; right: -10%; border-radius: 50%; width: 500px; height: 500px;"></div>
+<!-- Top Navigation Anchor (Shared Component: TopAppBar) -->
+<header class="fixed top-0 w-full bg-surface/5 backdrop-blur-xl border-b border-white/10 shadow-[0_20px_40px_rgba(0,0,0,0.4)] z-50 flex items-center justify-between px-container-margin h-xl">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary" data-icon="blur_on">blur_on</span>
+<h1 class="font-h3 text-h3 font-bold text-primary tracking-tighter">Task Void</h1>
+</div>
+<div class="flex items-center gap-md">
+<button class="active:scale-95 transition-transform hover:border-white/20 transition-all duration-300">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</header>
+<main class="pt-[100px] pb-xl px-container-margin min-h-screen max-w-7xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Main Content Area: Detailed Task View -->
+<div class="lg:col-span-8 space-y-lg">
+<!-- Breadcrumbs & Back -->
+<div class="flex items-center gap-sm text-on-surface-variant mb-md">
+<button class="flex items-center gap-xs hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="arrow_back">arrow_back</span>
+<span class="font-label-sm text-label-sm">Back to Dashboard</span>
+</button>
+</div>
+<!-- Task Identity Card -->
+<section class="glass-panel rounded-xl p-xl shadow-2xl relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-secondary to-primary"></div>
+<div class="flex flex-col gap-md">
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center px-sm py-xs rounded-full bg-secondary/10 border border-secondary/20 text-secondary font-label-xs text-label-xs uppercase tracking-widest">In Progress</span>
+<div class="flex gap-sm">
+<button class="text-on-surface-variant hover:text-error transition-colors p-sm">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors p-sm">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+<input class="bg-transparent border-b border-white/10 focus:border-secondary focus:ring-0 w-full font-h2 text-h2 text-on-surface px-0 py-sm transition-all placeholder:text-white/20" placeholder="Enter task title..." type="text" value="Redesign Core Engine Architecture"/>
+<div class="flex flex-wrap gap-md mt-sm">
+<div class="flex items-center gap-sm bg-white/5 px-md py-sm rounded-lg border border-white/10">
+<span class="material-symbols-outlined text-secondary" data-icon="calendar_today">calendar_today</span>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-on-surface-variant">DUE DATE</span>
+<span class="font-label-sm text-label-sm text-on-surface">Oct 24, 2023</span>
+</div>
+</div>
+<div class="flex items-center gap-sm bg-white/5 px-md py-sm rounded-lg border border-white/10">
+<span class="material-symbols-outlined text-primary" data-icon="label">label</span>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-on-surface-variant">PRIORITY</span>
+<span class="font-label-sm text-label-sm text-on-surface">High Performance</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Task Details & Notes -->
+<section class="glass-panel rounded-xl p-xl">
+<div class="flex items-center gap-sm mb-lg border-b border-white/5 pb-sm">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="description">description</span>
+<h2 class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Context &amp; Notes</h2>
+</div>
+<textarea class="bg-transparent border-0 focus:ring-0 w-full font-body-md text-body-md text-on-surface/80 p-0 leading-relaxed resize-none placeholder:text-white/10" placeholder="Start typing technical notes, requirements, and dependencies here..." rows="10">Define the modular architecture for the new processing unit. 
+Ensure the glassmorphism aesthetic is maintained across all sub-components. 
+Need to review the latency reports for the indigo-neon gradients before final deployment.
+
+Dependencies:
+- Core UI kit completion
+- Shaders for atmospheric blur
+- Material Icon transcription script</textarea>
+</section>
+<!-- Footer Actions -->
+<div class="flex items-center justify-between pt-md">
+<button class="flex items-center gap-sm text-on-surface-variant hover:text-on-surface transition-colors font-label-sm text-label-sm px-lg py-md border border-white/10 rounded-xl hover:bg-white/5">
+<span class="material-symbols-outlined" data-icon="archive">archive</span>
+                        Archive Task
+                    </button>
+<div class="flex items-center gap-md">
+<button class="font-label-sm text-label-sm text-on-surface-variant px-lg py-md">
+                            Cancel
+                        </button>
+<button class="bg-gradient-to-r from-secondary to-secondary-container text-on-secondary-fixed font-label-sm text-label-sm font-bold px-xl py-md rounded-xl transition-all active:scale-95 neon-glow-cyan">
+                            Save Changes
+                        </button>
+</div>
+</div>
+</div>
+<!-- Sidebar / Settings Area -->
+<aside class="lg:col-span-4 space-y-lg">
+<!-- Date Picker Glass Widget -->
+<div class="glass-panel rounded-xl p-lg">
+<div class="flex items-center justify-between mb-lg">
+<h3 class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Schedule</h3>
+<span class="material-symbols-outlined text-secondary" data-icon="schedule">schedule</span>
+</div>
+<div class="grid grid-cols-7 gap-xs text-center">
+<!-- Simplified Calendar Mock -->
+<div class="font-label-xs text-label-xs text-on-surface-variant/40 pb-sm">M</div>
+<div class="font-label-xs text-label-xs text-on-surface-variant/40 pb-sm">T</div>
+<div class="font-label-xs text-label-xs text-on-surface-variant/40 pb-sm">W</div>
+<div class="font-label-xs text-label-xs text-on-surface-variant/40 pb-sm">T</div>
+<div class="font-label-xs text-label-xs text-on-surface-variant/40 pb-sm">F</div>
+<div class="font-label-xs text-label-xs text-on-surface-variant/40 pb-sm">S</div>
+<div class="font-label-xs text-label-xs text-on-surface-variant/40 pb-sm">S</div>
+<div class="p-sm text-label-xs text-on-surface-variant/20">20</div>
+<div class="p-sm text-label-xs text-on-surface-variant/20">21</div>
+<div class="p-sm text-label-xs text-on-surface-variant/20">22</div>
+<div class="p-sm text-label-xs text-on-surface-variant/20">23</div>
+<div class="p-sm text-label-xs bg-secondary text-on-secondary rounded-lg font-bold">24</div>
+<div class="p-sm text-label-xs text-on-surface">25</div>
+<div class="p-sm text-label-xs text-on-surface">26</div>
+</div>
+<button class="w-full mt-lg border border-white/10 rounded-lg py-sm font-label-xs text-label-xs text-secondary hover:bg-secondary/10 transition-colors">
+                        SET REMINDER
+                    </button>
+</div>
+<!-- Collaborative Context -->
+<div class="glass-panel rounded-xl p-lg">
+<h3 class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-lg">Assigned To</h3>
+<div class="flex -space-x-sm mb-lg">
+<img alt="User" class="w-xl h-xl rounded-full border-2 border-surface shadow-xl" data-alt="A clean, minimalist 3D avatar headshot of a young professional with a focused expression, styled with modern digital rendering techniques. The background is a soft, deep charcoal that complements a high-performance productivity application's dark theme. The lighting is crisp, highlighting the contours of the face with a subtle cyan rim light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8VWvYlLfOJzfYq41K4kqXXATfDEMXzlR7FCHcIHFEM2ZTOzqXnhk55ZnOILKp-n9l5nopDjZRIAMTTJwmMTRLEC0DMHQq-KCUzpcCeeoGrLYggn2ws6_pwAPdqWKes2v2CDwYnq_n4-qSYX21g3mr9xkkBThsAiDJR5ceDDeXa-ieOcHS_P7hyDjalywqfE4fw2S4dxE8Zgs3a37CG5yCdr476wfXpV1lz92n2CMBpwr1tAlvTusLlVmEs9DYNZpUMEckVOlE_dg4"/>
+<img alt="User" class="w-xl h-xl rounded-full border-2 border-surface shadow-xl" data-alt="A sophisticated 3D avatar of a professional woman with a calm and precise expression, designed for a high-end software interface. The rendering uses soft shadows and a sleek, modern aesthetic with a dark, nocturnal background palette. Subtle indigo highlights define her silhouette, creating a sense of depth and focus suitable for a premium task management tool." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgBwLsxqlXPbc4SvAqP0W_OgWUc5xDgDsdwtt5fJ3WHg6xIX5N87rPDFxHbGb1GGXXor5gyrvoV5sZcE2AAwYoEnzpLtUVOU1ruJxswxU1uROmWEJr5_DxTphuSsgjInTkmaaX9pcQa-QKpAKkA_5Y2hv5rv4z1IEd29WPNkZ_BDALWmf8oZlzQFRxhq2rF-hOnvGgUSZq5MxOwOIEWzuKF0tuIt_eJcbfE1N2a4pKGLsWk6PhxVIZZBaZV6k5KwX13nHGjlytdMUL"/>
+<div class="w-xl h-xl rounded-full border-2 border-surface bg-surface-container-highest flex items-center justify-center text-label-xs text-primary shadow-xl">
+                            +2
+                        </div>
+</div>
+<button class="w-full bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl py-md font-label-sm text-label-sm flex items-center justify-center gap-sm transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="group_add">group_add</span>
+                        Manage Team
+                    </button>
+</div>
+<!-- Visual Reference Asset -->
+<div class="glass-panel rounded-xl p-xs overflow-hidden">
+<div class="relative group">
+<img alt="Reference" class="w-full h-[160px] object-cover rounded-lg opacity-80 group-hover:opacity-100 transition-opacity" data-alt="An abstract, high-definition digital artwork showcasing fluid, organic shapes in a spectrum of electric indigo and deep midnight blue. The composition feels three-dimensional, with translucent glass-like layers refracting soft cyan light. The overall mood is futuristic and high-tech, perfectly aligned with a premium, focused productivity environment that emphasizes calm precision and sophisticated depth." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdAm8Q9uuss7gesXeUTCVgmIqjig18mXdPR7SlvUiPJrIED6Wjyett9Y_hnNzfWu8fgthDc6P3cTGC89mKMOfg2RP3oB_IM2EnIjajJpfWVTxpqVHz5-eI8H3qKXYdzCEgi1a4Qn9V429e7Rvuo5Krn2zW_pyTfxy5gPK6fKb-ZPjNYSC5Lug2Nl0BJOtdpckzIOqvapAeQudJ7a1_iN-ta3YJyZiDdpKMYQCbGCiFQInmW2EOqezmYbt0-Vk8YtAJ9KjaGCjGUmjV"/>
+<div class="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white" data-icon="fullscreen">fullscreen</span>
+</div>
+</div>
+<div class="px-sm py-md">
+<span class="font-label-xs text-label-xs text-on-surface-variant">ATTACHMENT_01.JPG</span>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Navigation Shell (Shared Component: BottomNavBar) -->
+<!-- Suppression Logic: Rendered as this is a top-level detail view within the dashboard flow -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-lg py-md bg-surface-container-lowest/80 backdrop-blur-2xl border-t border-white/10 shadow-[0_-10px_30px_rgba(0,0,0,0.5)] md:hidden">
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors active:scale-90 transition-all">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+</button>
+<button class="flex flex-col items-center justify-center text-secondary bg-secondary/10 rounded-full p-unit active:scale-90 transition-all">
+<span class="material-symbols-outlined" data-icon="format_list_bulleted">format_list_bulleted</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors active:scale-90 transition-all">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors active:scale-90 transition-all">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</nav>
+<!-- Desktop Sidebar Hint (Hybrid implementation of TopAppBar and SideNav logic) -->
+<div class="hidden md:flex fixed left-0 top-[100px] flex-col gap-xl px-sm">
+<div class="flex flex-col items-center gap-lg py-xl px-sm glass-panel rounded-r-xl border-l-0">
+<button class="p-sm text-secondary bg-secondary/10 rounded-lg">
+<span class="material-symbols-outlined" data-icon="format_list_bulleted">format_list_bulleted</span>
+</button>
+<button class="p-sm text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+</button>
+<button class="p-sm text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+</button>
+<div class="w-sm h-px bg-white/10 my-sm"></div>
+<button class="p-sm text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+</div>
+</body></html>

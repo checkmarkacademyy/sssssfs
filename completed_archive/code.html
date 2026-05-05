@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Task Void - Completed Tasks</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-container": "#202a38",
+                    "tertiary-container": "#8791a3",
+                    "surface-container-high": "#292a2e",
+                    "surface-container-low": "#1a1b20",
+                    "on-surface": "#e3e2e8",
+                    "on-secondary-container": "#00424e",
+                    "on-tertiary": "#27313f",
+                    "surface-container-lowest": "#0d0e12",
+                    "on-tertiary-fixed": "#121c2a",
+                    "on-error-container": "#ffdad6",
+                    "surface-container-highest": "#343439",
+                    "secondary-fixed-dim": "#4cd7f6",
+                    "primary-fixed": "#e1e0ff",
+                    "inverse-surface": "#e3e2e8",
+                    "error-container": "#93000a",
+                    "on-secondary": "#003640",
+                    "on-background": "#e3e2e8",
+                    "tertiary-fixed": "#d9e3f6",
+                    "error": "#ffb4ab",
+                    "outline": "#908fa0",
+                    "secondary": "#4cd7f6",
+                    "outline-variant": "#464554",
+                    "on-secondary-fixed-variant": "#004e5c",
+                    "on-primary-fixed-variant": "#2f2ebe",
+                    "primary-fixed-dim": "#c0c1ff",
+                    "inverse-on-surface": "#2f3035",
+                    "surface-variant": "#343439",
+                    "tertiary": "#bdc7d9",
+                    "secondary-container": "#03b5d3",
+                    "surface-dim": "#121317",
+                    "tertiary-fixed-dim": "#bdc7d9",
+                    "surface-container": "#1f1f24",
+                    "primary": "#c0c1ff",
+                    "surface": "#121317",
+                    "on-primary": "#1000a9",
+                    "primary-container": "#8083ff",
+                    "on-error": "#690005",
+                    "secondary-fixed": "#acedff",
+                    "on-tertiary-fixed-variant": "#3d4756",
+                    "surface-bright": "#38393e",
+                    "on-surface-variant": "#c7c4d7",
+                    "on-primary-container": "#0d0096",
+                    "background": "#121317",
+                    "on-primary-fixed": "#07006c",
+                    "inverse-primary": "#494bd6",
+                    "surface-tint": "#c0c1ff",
+                    "on-secondary-fixed": "#001f26"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "4px",
+                    "xl": "32px",
+                    "xs": "4px",
+                    "container-margin": "40px",
+                    "lg": "24px",
+                    "md": "16px",
+                    "sm": "8px",
+                    "gutter": "20px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "label-xs": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "h3": ["Inter"],
+                    "body-md": ["Inter"],
+                    "h1": ["Inter"],
+                    "h2": ["Inter"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}],
+                    "label-xs": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "label-sm": ["14px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                    "h3": ["24px", {"lineHeight": "1.4", "letterSpacing": "0em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}],
+                    "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "h2": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0B0C10;
+            color: #e3e2e8;
+        }
+        .glass-panel {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glass-panel:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        .atmospheric-void {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        .glow-circle {
+            position: absolute;
+            filter: blur(120px);
+            opacity: 0.15;
+            border-radius: 100%;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-body-md antialiased min-h-screen">
+<!-- Atmospheric Layers -->
+<div class="atmospheric-void">
+<div class="glow-circle bg-primary w-[500px] h-[500px] -top-40 -left-40"></div>
+<div class="glow-circle bg-secondary w-[400px] h-[400px] bottom-0 right-0"></div>
+</div>
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full bg-surface/5 backdrop-blur-xl border-b border-white/10 shadow-[0_20px_40px_rgba(0,0,0,0.4)] z-50 flex items-center justify-between px-container-margin h-xl">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 0;">blur_on</span>
+<h1 class="font-h3 text-h3 font-bold text-primary tracking-tighter">Task Void</h1>
+</div>
+<div class="flex items-center gap-md">
+<button class="hover:border-white/20 transition-all duration-300 active:scale-95">
+<span class="material-symbols-outlined text-on-surface-variant">account_circle</span>
+</button>
+</div>
+</header>
+<main class="pt-[100px] pb-xl px-container-margin max-w-5xl mx-auto">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-lg mb-xl">
+<div>
+<p class="text-secondary font-label-sm tracking-widest uppercase mb-xs">Archive</p>
+<h2 class="font-h1 text-h1 text-on-surface">Completed Tasks</h2>
+</div>
+<button class="flex items-center gap-sm px-lg py-md rounded-xl bg-gradient-to-r from-error to-primary-container text-on-primary font-bold shadow-[0_10px_20px_rgba(147,0,10,0.3)] transition-all hover:scale-[1.02] active:scale-95">
+<span class="material-symbols-outlined">delete_sweep</span>
+<span class="font-label-sm">Clear All</span>
+</button>
+</div>
+<!-- Bento Grid Layout for Archive Stats -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg mb-xl">
+<div class="glass-panel p-lg rounded-xl flex flex-col justify-between h-[160px]">
+<span class="text-on-surface-variant font-label-sm">Efficiency Rate</span>
+<div class="flex items-baseline gap-sm">
+<span class="font-h1 text-h1 text-secondary">94%</span>
+<span class="material-symbols-outlined text-secondary text-h3">trending_up</span>
+</div>
+<div class="h-1 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-secondary to-primary w-[94%] shadow-[0_0_10px_rgba(76,215,246,0.5)]"></div>
+</div>
+</div>
+<div class="glass-panel p-lg rounded-xl flex flex-col justify-between h-[160px] md:col-span-2">
+<div class="flex justify-between items-start">
+<span class="text-on-surface-variant font-label-sm">Last 7 Days Activity</span>
+<span class="text-secondary font-label-sm">Total: 42 Tasks</span>
+</div>
+<div class="flex items-end justify-between h-16 gap-sm">
+<div class="flex-1 bg-surface-container-highest rounded-t-sm h-[40%]"></div>
+<div class="flex-1 bg-surface-container-highest rounded-t-sm h-[60%]"></div>
+<div class="flex-1 bg-surface-container-highest rounded-t-sm h-[30%]"></div>
+<div class="flex-1 bg-surface-container-highest rounded-t-sm h-[80%]"></div>
+<div class="flex-1 bg-surface-container-highest rounded-t-sm h-[50%]"></div>
+<div class="flex-1 bg-surface-container-highest rounded-t-sm h-[90%]"></div>
+<div class="flex-1 bg-secondary/40 rounded-t-sm h-full"></div>
+</div>
+</div>
+</div>
+<!-- Completed List -->
+<div class="space-y-md">
+<!-- Task Item 1 -->
+<div class="glass-panel p-md rounded-xl flex items-center justify-between opacity-50 transition-all hover:opacity-80">
+<div class="flex items-center gap-lg">
+<div class="w-5 h-5 rounded-full flex items-center justify-center bg-gradient-to-br from-secondary to-primary shadow-[0_0_10px_rgba(76,215,246,0.3)]">
+<span class="material-symbols-outlined text-[14px] text-on-primary font-bold">check</span>
+</div>
+<div>
+<h3 class="font-body-lg text-body-lg text-on-surface line-through decoration-on-surface-variant decoration-2">Quarterly Financial Review</h3>
+<p class="font-label-xs text-on-surface-variant flex items-center gap-xs mt-xs">
+<span class="material-symbols-outlined text-[12px]">schedule</span>
+                            Finished 2 hours ago
+                        </p>
+</div>
+</div>
+<div class="flex items-center gap-sm px-sm py-[2px] bg-secondary/10 border border-secondary/20 rounded-full">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="text-[10px] text-secondary font-bold uppercase tracking-wider">Finance</span>
+</div>
+</div>
+<!-- Task Item 2 -->
+<div class="glass-panel p-md rounded-xl flex items-center justify-between opacity-50 transition-all hover:opacity-80">
+<div class="flex items-center gap-lg">
+<div class="w-5 h-5 rounded-full flex items-center justify-center bg-gradient-to-br from-secondary to-primary shadow-[0_0_10px_rgba(76,215,246,0.3)]">
+<span class="material-symbols-outlined text-[14px] text-on-primary font-bold">check</span>
+</div>
+<div>
+<h3 class="font-body-lg text-body-lg text-on-surface line-through decoration-on-surface-variant decoration-2">Client Onboarding Framework</h3>
+<p class="font-label-xs text-on-surface-variant flex items-center gap-xs mt-xs">
+<span class="material-symbols-outlined text-[12px]">schedule</span>
+                            Finished yesterday
+                        </p>
+</div>
+</div>
+<div class="flex items-center gap-sm px-sm py-[2px] bg-primary/10 border border-primary/20 rounded-full">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="text-[10px] text-primary font-bold uppercase tracking-wider">Project X</span>
+</div>
+</div>
+<!-- Task Item 3 -->
+<div class="glass-panel p-md rounded-xl flex items-center justify-between opacity-50 transition-all hover:opacity-80">
+<div class="flex items-center gap-lg">
+<div class="w-5 h-5 rounded-full flex items-center justify-center bg-gradient-to-br from-secondary to-primary shadow-[0_0_10px_rgba(76,215,246,0.3)]">
+<span class="material-symbols-outlined text-[14px] text-on-primary font-bold">check</span>
+</div>
+<div>
+<h3 class="font-body-lg text-body-lg text-on-surface line-through decoration-on-surface-variant decoration-2">Website Infrastructure Maintenance</h3>
+<p class="font-label-xs text-on-surface-variant flex items-center gap-xs mt-xs">
+<span class="material-symbols-outlined text-[12px]">schedule</span>
+                            Finished Oct 24
+                        </p>
+</div>
+</div>
+<div class="flex items-center gap-sm px-sm py-[2px] bg-tertiary-container/10 border border-tertiary-container/20 rounded-full">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-container"></span>
+<span class="text-[10px] text-tertiary-container font-bold uppercase tracking-wider">DevOps</span>
+</div>
+</div>
+<!-- Task Item 4 -->
+<div class="glass-panel p-md rounded-xl flex items-center justify-between opacity-50 transition-all hover:opacity-80">
+<div class="flex items-center gap-lg">
+<div class="w-5 h-5 rounded-full flex items-center justify-center bg-gradient-to-br from-secondary to-primary shadow-[0_0_10px_rgba(76,215,246,0.3)]">
+<span class="material-symbols-outlined text-[14px] text-on-primary font-bold">check</span>
+</div>
+<div>
+<h3 class="font-body-lg text-body-lg text-on-surface line-through decoration-on-surface-variant decoration-2">Weekly Sync with Product Team</h3>
+<p class="font-label-xs text-on-surface-variant flex items-center gap-xs mt-xs">
+<span class="material-symbols-outlined text-[12px]">schedule</span>
+                            Finished Oct 23
+                        </p>
+</div>
+</div>
+<div class="flex items-center gap-sm px-sm py-[2px] bg-secondary/10 border border-secondary/20 rounded-full">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="text-[10px] text-secondary font-bold uppercase tracking-wider">Meetings</span>
+</div>
+</div>
+</div>
+<!-- Featured Achievement Card -->
+<div class="mt-xl relative rounded-2xl overflow-hidden glass-panel h-64 border-white/20">
+<img alt="Performance Insight" class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-40" data-alt="A sophisticated digital abstract landscape with glowing nodes and interconnected data lines in a deep nocturnal setting. The color palette features electric indigo, cyan, and deep obsidian black. The atmosphere is one of high-tech achievement and calm digital order, with subtle neon highlights reflecting off smooth, glass-like surfaces." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAZZ27Q7B4RtNzbYQt2nFR1gJii7UD-csh1OWzWUfU5DIMU-Lx48MsdaFyPbbuMy5T6Qdsi4hO0dmOW_rKPQ1NEkeLNMrwHABXXXacQY-OkVuO1-dP_CRiwz6_e-X1qmdyZ8-ZR6rJ4IyMOrZh1llj3loc6TPBhRbhsLxRcio1_o9FZJkMgepFhs8hTpi2rVDekQyc4I700LY4EIN4F_2V5GadRePj-ysvRtO7B9Eu2MU0XXV9DYH9qH8HuuvZJ1doy2Qy4aXo2QXj"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+<div class="relative h-full flex flex-col justify-end p-lg">
+<span class="font-label-xs text-secondary uppercase tracking-widest mb-xs">Milestone Reached</span>
+<h3 class="font-h2 text-h2 text-on-surface mb-sm">500 Tasks Completed</h3>
+<p class="text-on-surface-variant max-w-md">You've reached a peak productivity level this month. Your efficiency is in the top 5% of all Task Void users.</p>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-lg py-md bg-surface-container-lowest/80 backdrop-blur-2xl border-t border-white/10 shadow-[0_-10px_30px_rgba(0,0,0,0.5)] rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors active:scale-90" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary bg-secondary/10 rounded-full p-unit active:scale-90 transition-all" href="#">
+<span class="material-symbols-outlined">format_list_bulleted</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors active:scale-90" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors active:scale-90" href="#">
+<span class="material-symbols-outlined">settings</span>
+</a>
+</nav>
+</body></html>
